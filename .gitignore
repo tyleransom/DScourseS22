@@ -1,0 +1,16 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+DS_PSgrades.xlsx
+presentationOrder.R
+orderS22.csv
+Exams/
+ProblemSets/PS3/Solutions/
+ProblemSets/PS4/Solutions/
+ProblemSets/PS7/Solutions/
+ProblemSets/PS8/Solutions/
+ProblemSets/PS9/Solutions/
+ProblemSets/PS10/Solutions/
+ProblemSets/PS12/Solutions/
