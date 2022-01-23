@@ -1,0 +1,82 @@
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+%This is a blank document for homework assignments.
+
+%Some preliminaries:  Anything after a '%' is a comment - it isn't read by 
+%the compiler.  
+
+%You are welcome to skip down to lines 38-44 to put in some information, and 
+%then to line 57 to start writing, but the preamble contains all the 
+%formatting that makes it look nice, if you're interested in how that works.
+
+%Packages are just collections of commands to do different things.  For
+%almost anything you might want to do, there's a package that will do it.
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+
+
+\documentclass[12pt]{article}  
+%The article class is a very basic type of document for writing
+%We will customize it to do what we want.
+
+\usepackage[margin=1in]{geometry}  %Adjust margins, formatting
+
+\usepackage{amsmath}  
+\usepackage{amssymb}  
+\usepackage{amsfonts}  
+%These packages add commands for useful symbols and fonts and things like that.
+%Most of the time, these are all you need.
+
+\usepackage{textcomp, gensymb}  %Gives more symbols, like /degree
+
+\usepackage{amsthm}
+
+\usepackage{fancyhdr}  %Header and Footer formatting
+\pagestyle{fancy}  
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{18pt}
+
+%Header and Footer Information
+\lhead{\large{\bf Ahmed}}  %Replace with your name
+\chead{Homework 1}
+\rhead{\textsc{Econ 5253 - Spring 2022}}  %Replace "Title" with the name of the assignment
+\lfoot{\today}  %You can let it put in today's date or put one in yourself
+\cfoot{}
+\rfoot{\thepage\ of \ref{NumPages}}  %Counts the pages.
+
+\makeatletter        %This provides a total page count as \ref{NumPages}                 
+\AtEndDocument{\immediate\write\@auxout{\string\newlabel{NumPages}{{\thepage}}}}
+\makeatother
+
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{amsthm}  %This will create the Problem environment
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\renewcommand*{\proofname}{Solution}
+
+
+
+\begin{document}
+
+\section*{Q5.}
+ In the body of your .tex file, write a brief summary (≈ half a page) of your interests in economics & data science. What made you want to take this class? Do you have any ideas for what you would want to do for your project for this class? What are your goals for this class, and what is your plan for after graduation? 
+
+
+One of my objectives for taking this class is to be exposed to as many script languages as possible. I haven't had a chance to learn anything yet about Tableau and SQL, which I think are very important when it comes to data analysis. In academia, I may need to use some of the learned skills to scrape data using API or to be able to communicate with databases. I also don't have that much experience with Python, so I think I will try to use it more often, especially that I'm already using R in research with my supervisors. 
+Being able to extract, tidy and transform data is one of the skills that I think are critical to economic researchers, so I hope that at the end of this class I will learn some skills that will help me primarily in my future research endeavors.
+
+My idea for research this semester involves studying the effect of recreational marijuana on educational performance. For the data, I'm thinking about using a standardized test grades along with cannabis' different legalization (recreational or medical) or probably even the number of dispensary stores. I'm looking forward to discussing this idea with you and to acquiring your inputs and guidance. 
+
+After graduation, I'd like to teach and continue conducting  and  learning more about research in labor economics. 
+
+\section*{Equation}
+
+\[
+a^2 + b^2 = c^2
+\]
+
+
+
+
+
+\end{document}
