@@ -4,6 +4,7 @@
     <title>Lecture 5</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tyler Ransom" />
+    <script src="05slides_files/header-attrs-2.10/header-attrs.js"></script>
     <link href="05slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="05slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="05slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -88,7 +89,8 @@ The following file extensions are not tied to a specific software program
 | CSV                                | Comma separated values; data is in tabular form with column breaks marked by commas |
 | TSV                                | Tab separated values; data is in tabular form with column breaks marked by tabs |
 | DAT                                | Tab-delimited tabular data (ASCII file) |
-| TXT                                | Plain text; not organized in any specific manner (though usually columns are delimited with tabs or commsa) |
+| TXT                                | Plain text; not organized in any specific manner (though usually columns are delimited with tabs or commas) |
+| TEX                                | LaTeX; markup-style typesetting system used in scientific writing |
 | XML                                | eXtensible Markup Language; data is in text form with tags marking different fields |
 | HTML                               | HyperText Markup Language; similar to XML; used for almost every webpage you view |
 | [YAML](https://en.wikipedia.org/wiki/YAML) | YAML Ain't Markup Language; human readable version of XML |
@@ -254,7 +256,7 @@ Because data can be big and bulky, it is often easier to store and share the dat
 
 - We won't get into the nitty gritty details of dictionaries, but they are the workhorse of computer science, and you should at least know what they are and how they differ from tabular data 
 
-- In fact, dictionaries are often used to store multiple arrays in one file (e.g. in Matlab and other languages where the system can store multiple arrays at once)
+- In fact, dictionaries are often used to store multiple arrays in one file (e.g. Matlab `.mat` files, R `.RData` files, etc.)
 
 ---
 # Dictionaries (a.k.a Hash tables)
