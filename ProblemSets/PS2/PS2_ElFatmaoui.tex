@@ -1,0 +1,76 @@
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+%This is a blank document for homework assignments.
+
+%Some preliminaries:  Anything after a '%' is a comment - it isn't read by 
+%the compiler.  
+
+%You are welcome to skip down to lines 38-44 to put in some information, and 
+%then to line 57 to start writing, but the preamble contains all the 
+%formatting that makes it look nice, if you're interested in how that works.
+
+%Packages are just collections of commands to do different things.  For
+%almost anything you might want to do, there's a package that will do it.
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+
+
+\documentclass[12pt]{article}  
+%The article class is a very basic type of document for writing
+%We will customize it to do what we want.
+
+\usepackage[margin=1in]{geometry}  %Adjust margins, formatting
+
+\usepackage{amsmath}  
+\usepackage{amssymb}  
+\usepackage{amsfonts}  
+%These packages add commands for useful symbols and fonts and things like that.
+%Most of the time, these are all you need.
+
+\usepackage{textcomp, gensymb}  %Gives more symbols, like /degree
+
+\usepackage{amsthm}
+
+\usepackage{fancyhdr}  %Header and Footer formatting
+\pagestyle{fancy}  
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{18pt}
+
+%Header and Footer Information
+\lhead{\large{\bf Ahmed}}  %Replace with your name
+\chead{Homework 2}
+\rhead{\textsc{ECON 5313}}  %Replace "Title" with the name of the assignment
+\lfoot{\today}  %You can let it put in today's date or put one in yourself
+\cfoot{}
+\rfoot{\thepage\ of \ref{NumPages}}  %Counts the pages.
+
+\makeatletter        %This provides a total page count as \ref{NumPages}                 
+\AtEndDocument{\immediate\write\@auxout{\string\newlabel{NumPages}{{\thepage}}}}
+\makeatother
+
+\usepackage{amsthm}  %This will create the Problem environment
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\renewcommand*{\proofname}{Solution}
+
+
+
+\begin{document}
+
+The main tools of data scientists:
+\begin{itemize}
+    \item Measurement: Deals with how policies are constructed. I think that data scientists try to come up with measures or characteristics of some subjects or individuals that helps answer questions about policies. It's not always easy to come up with the right measure for policy or research questions. Thus, I think that data scientists need to have some creativity when it comes to choosing the right measure. 
+    
+    \item Statistical programming languages: Python and R are the most common script languages in the data science field. I think though that R would be more useful for economists, but I think that one should also learn Python since it is widely used. I think though that prominent data scientists know how to work with enormous number of software and languages; so SPSS, SAS, Tableau,... are also important. 
+    
+    \itme Visualization tools (usually included with the above):  Packages in the mentioned script languages are available to construct different visuals. For instance, one can use $ggplot2$ to create $geom_line$ or $geom_point$ figures. 
+    
+    \item Big Data management software: use Resilient Distributed Datasets (Hadoop or Spark) to handle big data. SQL is also used to manage and transform data in the form of database.
+    
+    \item Data collection tools: Web scraping and API are mostly used to extract data from the net.
+    
+    \item Modeling: using data to make predictions or find causal relationships. 
+    
+\end{itemize}
+
+
+\end{document}
