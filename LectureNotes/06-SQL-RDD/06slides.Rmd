@@ -229,6 +229,14 @@ counted <- sqldf('SELECT count(*) FROM df WHERE Species = "virginica"')
 counted.dplyr <- df %>% filter(Species=="virginica") %>% count
 ```
 
+
+---
+# Working with SQL databases in RStudio
+
+- [Here](https://www.rstudio.com/blog/working-with-databases-and-sql-in-rstudio/) is a useful blog post on the RStudio blog that goes through how to work with SQL databases in RStudio
+
+- Linked databases will show up in the "Connections" tab of the upper-right-hand quadrant of RStudio (i.e. where you would see objects on the workspace or where you would use the Git GUI)
+
 ---
 # SQL Examples (from Chris Albon)
 

@@ -4,6 +4,7 @@
     <title>Lecture 6</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tyler Ransom" />
+    <script src="06slides_files/header-attrs-2.10/header-attrs.js"></script>
     <link href="06slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="06slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="06slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -235,6 +236,14 @@ counted &lt;- sqldf('SELECT count(*) FROM df WHERE Species = "virginica"')
 # dplyr way:
 counted.dplyr &lt;- df %&gt;% filter(Species=="virginica") %&gt;% count
 ```
+
+
+---
+# Working with SQL databases in RStudio
+
+- [Here](https://www.rstudio.com/blog/working-with-databases-and-sql-in-rstudio/) is a useful blog post on the RStudio blog that goes through how to work with SQL databases in RStudio
+
+- Linked databases will show up in the "Connections" tab of the upper-right-hand quadrant of RStudio (i.e. where you would see objects on the workspace or where you would use the Git GUI)
 
 ---
 # SQL Examples (from Chris Albon)
@@ -5069,6 +5078,8 @@ GROUP BY city
         &lt;td&gt;37.0&lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
