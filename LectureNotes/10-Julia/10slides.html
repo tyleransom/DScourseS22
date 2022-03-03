@@ -4,6 +4,7 @@
     <title>Lecture 10</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tyler Ransom" />
+    <script src="10slides_files/header-attrs-2.10/header-attrs.js"></script>
     <link href="10slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="10slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="10slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -268,10 +269,10 @@ using CSV, DataFrames, GLM, HTTP, CategoricalArrays
 
 # load Stata auto dataset (i.e. `sysuse auto` in Stata)
 url = "https://tyleransom.github.io/teaching/MetricsLabs/auto.csv"
-auto = CSV.read(HTTP.get(url).body)
+auto = CSV.read(HTTP.get(url).body,DataFrame)
 
 # set `rep78` variable to be categorical
-categorical!(auto,:rep78)
+auto.rep78 = categorical(auto.rep78)
 
 # run basic regression (`reg price mpg foreign headroom i.rep78` in Stata)
 lm(@formula(price ~ mpg + foreign + headroom + rep78), auto)
