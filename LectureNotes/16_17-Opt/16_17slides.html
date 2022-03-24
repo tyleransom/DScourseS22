@@ -4,6 +4,7 @@
     <title>Lectures 16–17</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tyler Ransom" />
+    <script src="16_17slides_files/header-attrs-2.10/header-attrs.js"></script>
     <link href="16_17slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="16_17slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="16_17slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -582,6 +583,9 @@ Now SGD:
 # set up a stepsize
 alpha &lt;- 0.0003
 
+# set up a number of iterations
+maxiter &lt;- 500000
+
 # Our objective function
 objfun &lt;- function(beta,y,X) {
 return ( sum((y-X%*%beta)^2) )
@@ -603,7 +607,7 @@ beta &lt;- runif(dim(X)[2]) #start at uniform random numbers equal to number of 
 set.seed(100)
 
 # create a vector to contain all beta's for all steps
-beta.All &lt;- matrix("numeric",length(beta),iter)
+beta.All &lt;- matrix("numeric",length(beta),maxiter)
 
 # stochastic gradient descent method to find the minimum
 iter  &lt;- 1

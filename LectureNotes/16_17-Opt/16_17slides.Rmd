@@ -575,6 +575,9 @@ Now SGD:
 # set up a stepsize
 alpha <- 0.0003
 
+# set up a number of iterations
+maxiter <- 500000
+
 # Our objective function
 objfun <- function(beta,y,X) {
 return ( sum((y-X%*%beta)^2) )
@@ -596,7 +599,7 @@ beta <- runif(dim(X)[2]) #start at uniform random numbers equal to number of coe
 set.seed(100)
 
 # create a vector to contain all beta's for all steps
-beta.All <- matrix("numeric",length(beta),iter)
+beta.All <- matrix("numeric",length(beta),maxiter)
 
 # stochastic gradient descent method to find the minimum
 iter  <- 1
