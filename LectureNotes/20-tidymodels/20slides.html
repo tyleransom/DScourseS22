@@ -4,6 +4,7 @@
     <title>Lecture 20</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tyler Ransom" />
+    <script src="20slides_files/header-attrs-2.10/header-attrs.js"></script>
     <link href="20slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="20slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="20slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -169,7 +170,7 @@ For a complete list of prediction algorithms supported by `tidymodels`, see [her
 
 ---
 # Simple example
-Let's start by doing linear regression on a well-known dataset: the Boston housing data from UC Irivne
+Let's start by doing linear regression on a well-known dataset: the Boston housing data from UC Irvine (complete R script [here](https://github.com/tyleransom/DScourseS22/blob/master/LectureNotes/20-tidymodels/tidymodels_example.R))
 
 First step: read in the data and assign column names
 
@@ -435,6 +436,7 @@ last_fit(final_lasso, split = housing_split) %&gt;%
 # show best RMSE
 top_rmse %&gt;% print(n = 1)
 ```
+  
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -165,7 +165,7 @@ For a complete list of prediction algorithms supported by `tidymodels`, see [her
 
 ---
 # Simple example
-Let's start by doing linear regression on a well-known dataset: the Boston housing data from UC Irivne
+Let's start by doing linear regression on a well-known dataset: the Boston housing data from UC Irvine (complete R script [here](https://github.com/tyleransom/DScourseS22/blob/master/LectureNotes/20-tidymodels/tidymodels_example.R))
 
 First step: read in the data and assign column names
 
