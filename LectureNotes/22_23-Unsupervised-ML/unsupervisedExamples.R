@@ -1,7 +1,5 @@
 library(magrittr)
 library(mclust)
-library(mlr)
-library(RDRToolbox)
 
 # Set up the data we'll be using
 X <- iris[,-5]
@@ -71,8 +69,10 @@ prop.var.explained <- prin.comp$sdev^2/sum(prin.comp$sdev^2)
 print(prop.var.explained)
 
 # keep only the first three components (since these explain 99.5% of the variance)
-reducedX <- prin.comp$x#[,seq(1,2)]
-
+reducedX <- prin.comp$x[,seq(1,3)]
+reducedXlook <- prin.comp$x %>% as.data.frame()
+cormat.new <- reducedXlook %>% cor(.)
+print(cormat.new)
 
 ## try EM clustering on reduced data ... can we still get the same answer?
 #-------------------------------
@@ -107,6 +107,7 @@ print(clustersKDR)
 print(table(Y,clustersKDR$cluster))
 
 
+# the below uses mlr ... now obsolete
 ## try naive Bayes in full and reduced data ... how do we do?
 #-------------------------------
 # Full data
