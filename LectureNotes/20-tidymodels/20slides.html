@@ -297,11 +297,11 @@ sqrt(mean((housing_test_y$medv - ols_predicted)^2))
 ```r
 # easy way
 est.ols.easy &lt;- lm(log(medv) ~ crim + zn + indus + as.factor(chas) + 
-                               rm + age + rad + tax + ptratio + b + 
-                               lstat + crim:nox + poly(dis,2) + poly(nox,2), 
-                               data = housing_train)
+                     rm + age + rad + tax + ptratio + b + 
+                     lstat + crim:nox + poly(dis,2) + poly(nox,2), 
+                   data = housing_train)
 # Predict outcome for the test data
-ols_easy_predicted &lt;- predict(est.ols.easy, newdata = housing_test_x)
+ols_easy_predicted &lt;- predict(est.ols.easy, newdata = housing_test)
 # Root mean-squared error
 sqrt(mean((housing_test_y$medv - ols_easy_predicted)^2))
 ```
@@ -328,12 +328,12 @@ sqrt(mean((housing_test_y$medv - ols_easy_predicted)^2))
 
 ```r
 ols_spec &lt;- linear_reg() %&gt;%       # Specify a model
-            set_engine("lm") %&gt;%   # Specify an engine: lm, glmnet, stan, keras, spark
-            set_mode("regression") # Declare a mode: regression or classification
+  set_engine("lm") %&gt;%   # Specify an engine: lm, glmnet, stan, keras, spark
+  set_mode("regression") # Declare a mode: regression or classification
 
 ols_fit &lt;- ols_spec %&gt;%
-          fit(medv ~ ., data=housing_train_prepped)
-          
+          fit(medv ~ ., data=juice(housing_recipe))
+
 # inspect coefficients
 tidy(ols_fit$fit$coefficients) %&gt;% print
 tidy(est.ols) %&gt;% print
@@ -351,15 +351,16 @@ tidy(est.ols) %&gt;% print
     - or `accuracy`, `precision`, `recall` for classification tasks
 
 ```r
+# predict RMSE in sample
+ols_fit %&gt;% predict(housing_train_prepped) %&gt;%
+            mutate(truth = housing_train_prepped$medv) %&gt;%
+            rmse(truth,`.pred`) %&gt;%
+            print
+
 # predict RMSE out of sample
 ols_fit %&gt;% predict(housing_test_prepped) %&gt;%
             mutate(truth = housing_test_prepped$medv) %&gt;%
             rmse(truth,`.pred`) %&gt;%
-            print
-            
-ols_fit %&gt;% predict(housing_test_prepped) %&gt;%
-            mutate(truth = housing_test_prepped$medv) %&gt;%
-            rsq_trad(truth,`.pred`) %&gt;%
             print
 ```
 
@@ -381,11 +382,11 @@ ols_fit %&gt;% predict(housing_test_prepped) %&gt;%
 
 ```r
 tune_spec &lt;- linear_reg(
-                        penalty = tune(), # tuning parameter
-                        mixture = 1       # 1 = lasso, 0 = ridge
-                       ) %&gt;% 
-             set_engine("glmnet") %&gt;%
-             set_mode("regression")
+  penalty = tune(), # tuning parameter
+  mixture = 1       # 1 = lasso, 0 = ridge
+) %&gt;% 
+  set_engine("glmnet") %&gt;%
+  set_mode("regression")
 
 # define a grid over which to try different values of lambda
 lambda_grid &lt;- grid_regular(penalty(), levels = 50)
@@ -402,15 +403,16 @@ rec_folds &lt;- vfold_cv(housing_train_prepped, v = 10)
 ```r
 # Workflow
 rec_wf &lt;- workflow() %&gt;%
-          add_model(tune_spec) %&gt;%
-          add_formula(log(medv) ~ .)
+  add_formula(log(medv) ~ .) %&gt;%
+  add_model(tune_spec) #%&gt;%
+  #add_recipe(housing_recipe)
 
 # Tuning results
 rec_res &lt;- rec_wf %&gt;%
-           tune_grid(
-                     resamples = rec_folds,
-                     grid = lambda_grid
-                    )
+  tune_grid(
+    resamples = rec_folds,
+    grid = lambda_grid
+  )
 ```
 
 
@@ -432,7 +434,7 @@ final_lasso &lt;- finalize_workflow(rec_wf, best_rmse)
 # Print out results in test set
 last_fit(final_lasso, split = housing_split) %&gt;%
          collect_metrics() %&gt;% print
-         
+
 # show best RMSE
 top_rmse %&gt;% print(n = 1)
 ```
