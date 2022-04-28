@@ -136,7 +136,7 @@ Final grades will be assigned according to the standard cutoffs (90%+ for an A, 
 | Apr 19 | T   | Machine learning vs. econometrics ([Slides](https://raw.githack.com/tyleransom/DScourseS22/master/LectureNotes/24-ML-vs-Econometrics/24slides.html)) | [PS 10](https://raw.githack.com/tyleransom/DScourseS22/master/ProblemSets/PS10/PS10.pdf) |
 | Apr 21 | Th  | Discrete choice modeling: static discrete choice ([Slides](https://raw.githack.com/tyleransom/DScourseS22/master/LectureNotes/25_26-Discrete-Choice/25_26slides.html)) |  |
 | Apr 26 | T   | Discrete choice modeling: dynamic discrete choice ([Slides](https://raw.githack.com/tyleransom/DScourseS22/master/LectureNotes/25_26-Discrete-Choice/25_26slides.html)) | [PS 11](https://raw.githack.com/tyleransom/DScourseS22/master/ProblemSets/PS11/PS11.pdf) |
-| Apr 28 | Th  | Intro to Python? | |
+| Apr 28 | Th  | Intro to Python ([Slides](https://raw.githack.com/tyleransom/DScourseS22/master/LectureNotes/27-Python/27slides.html)) | |
 | May 3  | T   | Final Project presentations  ([Rubric](https://github.com/tyleransom/DScourseS22/blob/master/FinalProject/README.md)) | |
 | May 5  | Th  | Final Project presentations ([Rubric](https://github.com/tyleransom/DScourseS22/blob/master/FinalProject/README.md)) | [PS 12](https://raw.githack.com/tyleransom/DScourseS22/master/ProblemSets/PS12/PS12.pdf) |
 | May 9  | M   | Final Exam (in class, 1:30-3:30pm)                            | Final project due ([Scoresheet](https://raw.githack.com/tyleransom/DScourseS22/master/FinalProject/Scoresheet.pdf)) |

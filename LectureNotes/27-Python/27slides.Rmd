@@ -1,0 +1,296 @@
+---
+title: "Lecture 27"
+subtitle: "Intro and Tips for Python"
+author: Tyler Ransom
+date: ECON 5253, University of Oklahoma
+output:
+  xaringan::moon_reader:
+    css: ['default', 'metropolis', 'metropolis-fonts', 'ou-colors.css']
+    # self_contained: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+
+---
+
+# Python
+
+- Python is a scientific computing language
+
+- Similar in function to R, Julia or Matlab
+
+- Out of these four, Python is the only one that is truly "object-oriented"
+
+
+---
+
+# What makes Python great?
+
+- The #1 language used for industrial AI/ML products
+
+- One of the most in-demand programming languages in the labor market
+
+- Easy to use (relatively speaking)
+
+- Mature codebase (think: lots of libraries containing useful utilities that you don't have to re-invent!)
+
+- Highly flexible: you can use it to do anything from data analysis to programming a video game!
+
+---
+
+# Learning Python
+
+- There are lots of resources for learning Python
+
+- Ultimately, learning is through experience
+
+- [Python homepage](https://www.python.org/)
+
+- [Documentation](https://www.python.org/doc/)
+
+- [Python wiki](https://wiki.python.org/)
+
+- [YouTube](https://www.youtube.com/watch?v=kqtD5dpn9C8) (Programming with Mosh channel)
+
+- [Cheat sheet](https://www.pythoncheatsheet.org/)
+
+---
+
+# Installing Python
+
+Go [here](https://www.python.org/downloads/) and follow the instructions for your computer's operating system
+
+- If you want to use Python through RStudio, then don't do what's listed on this slide
+
+- Do what's on the next slide instead
+
+---
+
+# Using Python directly from within RStudio
+
+- You can use Python directly from inside RStudio
+
+- [Here](https://support.rstudio.com/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE)'s how
+
+    - install a "Miniconda" distribution using `reticulate::install_miniconda()`
+    
+    - install the `reticulate` R package
+
+- Open (or create a new) `.py` script
+
+- In the console, type `reticulate::repl_python()`
+
+- You can then "source" a `.py` script and run it just as you would an R script.
+
+- To get out of the Python REPL, just type Ctrl+D or "exit"
+
+---
+
+# Python REPL
+
+REPL = .hi[R]ead .hi[E]val .hi[P]rint .hi[L]oop (i.e. the interactive console)
+
+- Open Python and you should see a prompt that says `>>> `
+
+Stuff the REPL can do:
+
+- basic calculator functions; e.g. `import math; math.sqrt(math.pi)` which returns 1.77245
+
+- up arrow for last command
+
+---
+
+# Basic operations (see [cheatsheet](https://www.pythoncheatsheet.org/) for more details; see [here](https://www.datacamp.com/cheat-sheet/numpy-cheat-sheet-data-analysis-in-python) for numpy specifically)
+
+- .hi[Array indexing:] use `[]`, e.g. `X[5,2]`
+
+- .hi[Show output:] use `print()`, e.g. `print("size of X is ", X.shape)`
+
+- .hi[Assignment:] use `=`, e.g. `X = numpy.random.rand(15,3)`
+
+- .hi[Commenting:] use `#` for single line, (but no multi-line)
+
+- .hi[Load installed package:] `import pandas`
+
+- .hi[Execute script:] `exec(open('myfile.py').read())` $\equiv$ `do myfile.do`, `include('myfile.jl')` or `source('myfile.R')`
+
+---
+
+# Creating and executing a Python script
+
+- In Stata or R, you create a script and then execute it
+
+- The same thing is true in Python
+
+- The following is the contents of `myscript.py`
+
+```python
+import os
+import math
+print("Current working directory is: ",os.getcwd())
+print("The square root of pi is: ",math.sqrt(math.pi))
+```
+
+- Then execute this script at the REPL by typing `exec(open('myscript.py').read())`
+
+---
+
+# Functions in R and Julia
+
+- In R and Julia, there is exact syntax for beginning and ending a function, e.g.
+
+```r
+# R
+test <- function(input1) {
+    some.calculations
+    return(output)
+}
+```
+
+```julia
+# Julia
+function test(input1)
+    some_calculations
+    return output
+end
+```
+
+- The braces (`{ }`) and `function ... end` act as delimiters
+
+---
+
+# Functions in Python
+
+- In Python functions, there are no braces or `end` statements
+
+- Rather, the inside of the function is delimited by four spaces
+
+- Also, rather than use the phrase `function`, the phrase `def` is used:
+
+```python
+def test(input1): # note the colon!
+    some_calculations
+    return output
+# no end statement!
+```
+
+---
+
+# Other Python differences
+
+- Python uses 0-based indexing
+
+- so if I have array `a = [1, 2, 3]` then `a[0]` will be `1`
+
+- Many "basic" utilities are not available out of the box
+
+    - e.g. instead of `sqrt(pi)`, it's `import math; math.sqrt(math.pi)`
+
+    - or `X = rand(15,3)` becomes `import numpy; X = numpy.random.rand(15,3)`
+    
+    - base R has many more built-in features, but base Julia is similar to base Python
+
+
+---
+
+# Installing packages
+
+- If you are using the `reticulate` package in R, you can install Python packages with e.g. `py_install("pandas")` from the .hi[R] console
+
+    - Note: first you need to load the library with `library(reticulate)`
+
+- Outside of `reticulate`, you can install packages from your system's terminal with `pip install pandas`, for example
+
+- Go ahead and install `pandas` and `statsmodels` right now
+
+---
+
+# Arrays and matrix algebra require `numpy`
+
+```python
+# Importing Numpy package
+import numpy as np
+
+# Creating a numpy array using np.array()
+org_array = np.array([[23, 46, 85],
+                      [43, 56, 99],
+                      [11, 34, 55]])
+
+# Printing the Numpy array
+print(org_array)
+```
+- Python is .hi[row major], meaning that arrays are organized opposite from R, Julia, Matlab and FORTRAN
+
+- row major means that the 3rd (0-based) element of `org_array` would be `43` (the (2,1) element of the matrix)
+
+- whereas in a column major language, the 4th (1-based) element of `org_array` would be `46` (the (1,2) element of the matrix)
+
+---
+
+# Data Frames (Pandas)
+
+- `pandas` is the name of Python's most popular data frame package
+
+- Once you load in the `pandas` library, you will get similar features for data frames as with base R's `data.frame()` and Julia's `DataFrames`
+
+
+---
+
+# Data Input and Output
+
+- .hi[Read a CSV file:] `import pandas as pd; data = pd.read_csv("filename.csv")`
+
+- .hi[Write a CSV file:] `import pandas as pd; pd.DataFrame.to_csv("filename.csv", data)`
+
+- In `pd.read_csv()`, the input can be a URL (unlike in Julia)
+
+- Like Julia, Python has dictionaries (recall that R does not)
+
+```python
+# dictionary with integer keys
+my_dict = {1: 'apple', 2: 'orange'}
+```
+
+---
+
+# Running a regression using `statsmodels`
+
+[Source](https://blog.rtwilson.com/regression-in-python-using-r-style-formula-its-easy/)
+
+```python
+import os
+import math
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+
+# load Stata auto dataset (i.e. `sysuse auto` in Stata)
+url = "https://tyleransom.github.io/teaching/MetricsLabs/auto.csv"
+auto = pd.read_csv(url)
+
+# since `rep78` is categorical, wrap it in `C()` [capitalized]
+est = ols("price ~ mpg + foreign + headroom + C(rep78)", data=auto)
+results = est.fit()
+print(results.summary())
+```
+
+---
+
+# Graphics in Python
+
+- rather than `ggplot2`, Python has `matplotlib.pyplot`
+
+---
+
+# Where to go from here
+
+- [Learn Python the hard way](https://learnpythonthehardway.org/python3/) is a cheap and excellent set of exercises to drill yourself on Python basics
+
+- Dan Sullivan's [Stata vs. Python crosswalk](http://www.danielmsullivan.com/pages/tutorial_stata_to_python.html) may be useful if you are coming from a Stata background
+
+- There is excellent documentation and forums about Python in virtually every corner of the internet
+
+- Happy coding!

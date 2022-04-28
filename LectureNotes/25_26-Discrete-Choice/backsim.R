@@ -109,7 +109,7 @@ options <- list("algorithm"="NLOPT_LN_NELDERMEAD","xtol_rel"=1.0e-6,"maxeval"=1e
 result <- nloptr( x0=theta0,eval_f=objfun,opts=options,Choice=Choice,age=age)
 print(result)
 
-
+sadfgaeg
 ### Refresher on using nloptr to estimate a binary logit model
 
 # iris example
