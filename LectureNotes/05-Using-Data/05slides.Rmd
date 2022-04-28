@@ -312,6 +312,8 @@ mydictionary = Dict("John Smith"=>"521-1234", "Lisa Smith"=>"521-8976", "Sandra 
 
 - Other formats in this vein are RC (Record Columnar) and ORC (Optimized Record Columnar)
 
+- There is a nice discussion [here](https://www.rstudio.com/blog/speed-up-data-analytics-with-parquet-files/) about the memory savings of Parquet, as well as how to access Parquet through R
+
 ---
 # Useful Links
 
